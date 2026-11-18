@@ -1,0 +1,355 @@
+# =========================================
+#  S-Towny Config
+# =========================================
+language: turkish
+
+# =========================================
+#  Ekonomi (Vault uzerinden calisir - Essentials dahil her ekonomi pluginiyle uyumlu)
+# =========================================
+economy:
+  town-creation-cost: 500
+  kingdom-creation-cost: 2500
+  royal-creation-cost: 10000
+  # Ilk arazi (chunk) maliyeti; her yeni claim'de bu oranla carpilir (katlanarak artar).
+  claim-base-cost: 100
+  claim-cost-multiplier: 1.4
+  # Bir kasabanin sahip olabilecegi azami arazi sayisi (0 = sinirsiz).
+  max-claims-per-town: 50
+  # Her arazi icin gunluk bakim ucreti (kasaba kasasindan, ekonomiden silinir).
+  upkeep-per-claim-per-day: 2.0
+  kingdom-upkeep-per-day: 50.0
+  royal-upkeep-per-day: 200.0
+  # Vergi/bakim dongusu kac dakikada bir calissin (1440 = 24 saat). Test icin 1-2 yap.
+  tax-interval-minutes: 1440
+
+# =========================================
+#  Dunya kisitlamasi
+# =========================================
+world-restriction:
+  # true ise S-Towny sadece asagidaki dunyalarda calisir (komutlar, scoreboard, claim).
+  enabled: false
+  worlds:
+    - "world"
+
+# =========================================
+#  Arazi korumasi
+# =========================================
+protection:
+  enabled: true
+
+# =========================================
+#  Dynmap entegrasyonu
+# =========================================
+dynmap:
+  enabled: true
+  marker-set-name: "S-Towny Kasabalari"
+  fill-color: "#55ff55"
+  fill-opacity: 0.35
+  line-color: "#00aa00"
+  line-opacity: 0.8
+
+# =========================================
+#  Scoreboard
+# =========================================
+scoreboard:
+  enabled-by-default: true
+  # Baska bir scoreboard plugini ile cakisiyorsa 1 birak (en sik guncelleme).
+  update-interval-seconds: 1
+
+# =========================================
+#  Ses efektleri (sound: "" yaparak kapatabilirsin)
+# =========================================
+sounds:
+  success:
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.3
+  error:
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 0.8
+  claim:
+    sound: "BLOCK_ANVIL_USE"
+    volume: 0.8
+    pitch: 1.2
+  bank:
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.0
+  invite:
+    sound: "BLOCK_NOTE_BLOCK_BELL"
+    volume: 1.0
+    pitch: 1.0
+  create:
+    sound: "UI_TOAST_CHALLENGE_COMPLETE"
+    volume: 1.0
+    pitch: 1.0
+  tax:
+    sound: "BLOCK_NOTE_BLOCK_BASS"
+    volume: 0.6
+    pitch: 0.9
+
+# =========================================
+#  Mesajlar (MiniMessage formati)
+# =========================================
+messages:
+  turkish:
+    only-players: "<red>Bu komut sadece oyuncular tarafından kullanılabilir."
+    no-permission: "<red>Bu komutu kullanmaya yetkin yok."
+    no-economy: "<red>Sunucuda bir ekonomi plugini (Vault) bulunamadı, bu özellik kullanılamıyor."
+    player-not-found: "<red>Oyuncu bulunamadı: <white>%player%"
+    invalid-usage: "<gray>Kullanım: <white>%usage%"
+    unknown-subcommand: "<red>Bilinmeyen komut. <gray>/st yazarak tüm komutları görebilirsin."
+    wrong-world: "<red>S-Towny komutları sadece belirli bir dünyada kullanılabilir."
+    invalid-name: "<red>Geçersiz isim. <gray>Sadece harf, rakam ve alt çizgi kullan."
+    name-taken: "<red>'%name%' adı zaten kullanılıyor."
+    already-in-town: "<red>Zaten bir kasabaya bağlısın."
+    not-in-town: "<red>Bir kasabaya bağlı değilsin."
+    already-in-kingdom: "<red>Kasaban zaten bir krallığa bağlı."
+    not-in-kingdom: "<red>Krallığa bağlı değilsin."
+    already-in-royal: "<red>Krallığın zaten bir kraliyete bağlı."
+    not-in-royal: "<red>Kraliyete bağlı değilsin."
+    not-mayor: "<red>Bu işlemi sadece kasabanın başkanı yapabilir."
+    not-king: "<red>Bu işlemi sadece krallığın kralı yapabilir."
+    not-emperor: "<red>Bu işlemi sadece kraliyetin imparatoru yapabilir."
+    not-resident-of-target: "<red>%name% kasabasının bir sakini değil."
+    cannot-act-on-self: "<red>Bunu kendine yapamazsın."
+    create-pending: "<yellow>%type% <white>%name%<yellow> kurma isteği alındı. <white>Maliyet: %cost%\n<gray>Onaylamak için: <white>/st confirm %name%"
+    confirm-nothing-pending: "<red>Onaylanacak bekleyen bir kuruluş isteğin yok."
+    confirm-insufficient-funds: "<red>Yetersiz bakiye. <white>Gereken: %cost%"
+    created: "<gradient:#3ddc84:#00b894><bold>%type% %name% kuruldu!</bold></gradient>"
+    invite-sent: "<green>%target% adlı oyuncuya/kasabaya davet gönderildi."
+    invite-received: "<yellow>%inviter%<white>, seni/kasabanı <gold>%name%<white> %type%'a davet etti.\n<gray>Kabul etmek için: <white>/st accept <gray>| Reddetmek için: <white>/st deny"
+    no-pending-invite: "<red>Bekleyen bir davetin yok."
+    invite-accepted: "<gradient:#3ddc84:#00b894>%name% %type%'a katıldın!"
+    invite-denied: "<yellow>Daveti reddettin."
+    left: "<yellow>%type%'dan ayrıldın."
+    kicked: "<green>%player% kasabadan çıkarıldı."
+    cannot-kick-leader: "<red>Lideri kasabadan çıkaramazsın."
+    assistant-added: "<green>%player% artık yardımcı."
+    assistant-removed: "<yellow>%player% artık yardımcı değil."
+    claim-success: "<gradient:#3ddc84:#00b894>Arazi genişletildi! <white>Maliyet: %cost% <gray>(toplam %total% arazi)"
+    claim-already-yours: "<red>Bulunduğun arazi zaten kasabana ait."
+    claim-already-other: "<red>Bu arazi %town% kasabasına ait."
+    claim-insufficient-funds: "<red>Yetersiz bakiye. <white>Gereken: %cost%"
+    claim-max-reached: "<red>Kasaban azami arazi sınırına ulaştı."
+    unclaim-success: "<yellow>Arazi bırakıldı."
+    unclaim-not-claimed-by-you: "<red>Bulunduğun arazi kasabana ait değil."
+    deposit-success: "<green>%amount% kasaya yatırıldı. <gray>Kasaba bakiyesi: %balance%"
+    withdraw-success: "<green>%amount% kasadan çekildi. <gray>Kasaba bakiyesi: %balance%"
+    insufficient-personal-funds: "<red>Yetersiz kişisel bakiye."
+    insufficient-bank-funds: "<red>Kasaba kasasında yeterli bakiye yok."
+    not-bank-permitted: "<red>Kasaya sadece başkan ve yardımcılar erişebilir."
+    tax-set: "<green>Günlük vergi %amount% olarak ayarlandı."
+    tax-charged: "<gray>Günlük vergi olarak <white>%amount%<gray> hesabından çekildi."
+    upkeep-charged: "<gray>Günlük bakım ücreti olarak <white>%amount%<gray> kasandan çekildi."
+    upkeep-failed-warning: "<red>%name% yeterli bakiyeye sahip olmadığı için günlük bakım ücreti ödenemedi!"
+    info-title: "<gold><bold>%name% <gray>(%type%)"
+    info-leader: "<white>Lider: <gray>%leader%"
+    info-residents: "<white>Üye sayısı: <gray>%count%"
+    info-balance: "<white>Kasa: <gray>%balance%"
+    info-claims: "<white>Arazi: <gray>%count%"
+    info-tax: "<white>Günlük vergi: <gray>%amount%"
+    info-parent: "<white>Bağlı olduğu: <gray>%parent%"
+    not-found: "<red>'%name%' bulunamadı."
+    list-title: "<gold><bold>%type% listesi:"
+    list-empty: "<gray>Henüz hiç yok."
+    spawn-success: "<green>%name% merkezine ışınlandın."
+    spawn-no-town: "<red>Bir kasabaya bağlı değilsin."
+    spawn-set: "<green>Kasaba merkezi buraya ayarlandı."
+    renamed: "<green>%old% artık %new% olarak adlandırıldı."
+    reload-success: "<green>S-Towny config dosyası yenilendi."
+    protection-denied: "<red>Burası %town% kasabasına ait, izinsiz inşa edemezsin."
+    pvp-enabled: "<red>Kasaba arazinde PVP açıldı."
+    pvp-disabled: "<green>Kasaba arazinde PVP kapatıldı."
+    permission-granted: "<green>%player% artık '%permission%' iznine sahip."
+    permission-revoked: "<yellow>%player% oyuncusunun '%permission%' izni kaldırıldı."
+    land-size: "<gold>Arazi: <white>%count% chunk"
+    entering-land: "<gold><bold>%town%"
+    entering-land-sub: "<gray>Girdiniz"
+    leaving-land: "<gray><bold>Vahşi Doğa"
+    scoreboard-enabled: "<green>Scoreboard açıldı."
+    scoreboard-disabled: "<yellow>Scoreboard kapatıldı."
+    sb-title: "<gold><bold>⚔ S-Towny ⚔"
+    sb-town: "<white>Kasaba: <gray>"
+    sb-kingdom: "<white>Krallık: <gray>"
+    sb-royal: "<white>Kraliyet: <gray>"
+    sb-balance: "<white>Kasa: <gray>"
+    sb-claims: "<white>Arazi: <gray>"
+    sb-pvp-on: "<red>PVP: AÇIK"
+    sb-pvp-off: "<green>PVP: KAPALI"
+    sb-none: "<dark_gray>-"
+
+  russia:
+    only-players: "<red>Эту команду могут использовать только игроки."
+    no-permission: "<red>У тебя нет прав для использования этой команды."
+    no-economy: "<red>На сервере не найден плагин экономики (Vault), эта функция недоступна."
+    player-not-found: "<red>Игрок не найден: <white>%player%"
+    invalid-usage: "<gray>Использование: <white>%usage%"
+    unknown-subcommand: "<red>Неизвестная команда. <gray>Напиши /st, чтобы увидеть все команды."
+    wrong-world: "<red>Команды S-Towny доступны только в определённом мире."
+    invalid-name: "<red>Недопустимое имя. <gray>Используй только буквы, цифры и подчёркивание."
+    name-taken: "<red>Имя '%name%' уже занято."
+    already-in-town: "<red>Ты уже состоишь в городе."
+    not-in-town: "<red>Ты не состоишь в городе."
+    already-in-kingdom: "<red>Твой город уже состоит в королевстве."
+    not-in-kingdom: "<red>Ты не состоишь в королевстве."
+    already-in-royal: "<red>Твоё королевство уже состоит в империи."
+    not-in-royal: "<red>Ты не состоишь в империи."
+    not-mayor: "<red>Это может сделать только мэр города."
+    not-king: "<red>Это может сделать только король королевства."
+    not-emperor: "<red>Это может сделать только император империи."
+    not-resident-of-target: "<red>Этот игрок не житель города %name%."
+    cannot-act-on-self: "<red>Ты не можешь сделать это с самим собой."
+    create-pending: "<yellow>Запрос на создание %type% <white>%name%<yellow> получен. <white>Стоимость: %cost%\n<gray>Подтвердить: <white>/st confirm %name%"
+    confirm-nothing-pending: "<red>У тебя нет ожидающих запросов на создание."
+    confirm-insufficient-funds: "<red>Недостаточно средств. <white>Нужно: %cost%"
+    created: "<gradient:#3ddc84:#00b894><bold>%type% %name% создан(о)!</bold></gradient>"
+    invite-sent: "<green>Приглашение отправлено: %target%."
+    invite-received: "<yellow>%inviter%<white> пригласил тебя/твой город в <gold>%name%<white> (%type%).\n<gray>Принять: <white>/st accept <gray>| Отклонить: <white>/st deny"
+    no-pending-invite: "<red>У тебя нет ожидающих приглашений."
+    invite-accepted: "<gradient:#3ddc84:#00b894>Ты вступил(а) в %name% (%type%)!"
+    invite-denied: "<yellow>Приглашение отклонено."
+    left: "<yellow>Ты покинул(а): %type%."
+    kicked: "<green>%player% исключён(а) из города."
+    cannot-kick-leader: "<red>Нельзя исключить лидера."
+    assistant-added: "<green>%player% теперь помощник."
+    assistant-removed: "<yellow>%player% больше не помощник."
+    claim-success: "<gradient:#3ddc84:#00b894>Территория расширена! <white>Стоимость: %cost% <gray>(всего %total%)"
+    claim-already-yours: "<red>Эта территория уже принадлежит твоему городу."
+    claim-already-other: "<red>Эта территория принадлежит городу %town%."
+    claim-insufficient-funds: "<red>Недостаточно средств. <white>Нужно: %cost%"
+    claim-max-reached: "<red>Твой город достиг лимита территорий."
+    unclaim-success: "<yellow>Территория освобождена."
+    unclaim-not-claimed-by-you: "<red>Эта территория не принадлежит твоему городу."
+    deposit-success: "<green>%amount% внесено в казну. <gray>Баланс города: %balance%"
+    withdraw-success: "<green>%amount% снято из казны. <gray>Баланс города: %balance%"
+    insufficient-personal-funds: "<red>Недостаточно личных средств."
+    insufficient-bank-funds: "<red>В казне города недостаточно средств."
+    not-bank-permitted: "<red>Доступ к казне есть только у мэра и помощников."
+    tax-set: "<green>Ежедневный налог установлен: %amount%."
+    tax-charged: "<gray>Ежедневный налог <white>%amount%<gray> списан с твоего счёта."
+    upkeep-charged: "<gray>Ежедневное содержание <white>%amount%<gray> списано из твоей казны."
+    upkeep-failed-warning: "<red>%name% не смог оплатить ежедневное содержание, недостаточно средств!"
+    info-title: "<gold><bold>%name% <gray>(%type%)"
+    info-leader: "<white>Лидер: <gray>%leader%"
+    info-residents: "<white>Участников: <gray>%count%"
+    info-balance: "<white>Казна: <gray>%balance%"
+    info-claims: "<white>Территории: <gray>%count%"
+    info-tax: "<white>Ежедневный налог: <gray>%amount%"
+    info-parent: "<white>Принадлежит: <gray>%parent%"
+    not-found: "<red>'%name%' не найден(о)."
+    list-title: "<gold><bold>Список (%type%):"
+    list-empty: "<gray>Пока пусто."
+    spawn-success: "<green>Ты телепортирован(а) в центр %name%."
+    spawn-no-town: "<red>Ты не состоишь в городе."
+    spawn-set: "<green>Центр города установлен здесь."
+    renamed: "<green>%old% теперь называется %new%."
+    reload-success: "<green>Конфигурация S-Towny обновлена."
+    protection-denied: "<red>Это территория города %town%, строить без разрешения нельзя."
+    pvp-enabled: "<red>PVP на территории города включён."
+    pvp-disabled: "<green>PVP на территории города выключен."
+    permission-granted: "<green>%player% теперь имеет право '%permission%'."
+    permission-revoked: "<yellow>У %player% отозвано право '%permission%'."
+    land-size: "<gold>Территория: <white>%count% чанков"
+    entering-land: "<gold><bold>%town%"
+    entering-land-sub: "<gray>Вход"
+    leaving-land: "<gray><bold>Дикая местность"
+    scoreboard-enabled: "<green>Scoreboard включён."
+    scoreboard-disabled: "<yellow>Scoreboard выключен."
+    sb-title: "<gold><bold>⚔ S-Towny ⚔"
+    sb-town: "<white>Город: <gray>"
+    sb-kingdom: "<white>Королевство: <gray>"
+    sb-royal: "<white>Империя: <gray>"
+    sb-balance: "<white>Казна: <gray>"
+    sb-claims: "<white>Территории: <gray>"
+    sb-pvp-on: "<red>PVP: ВКЛ"
+    sb-pvp-off: "<green>PVP: ВЫКЛ"
+    sb-none: "<dark_gray>-"
+
+  english:
+    only-players: "<red>This command can only be used by players."
+    no-permission: "<red>You do not have permission to use this command."
+    no-economy: "<red>No economy plugin (Vault) was found on this server, this feature is unavailable."
+    player-not-found: "<red>Player not found: <white>%player%"
+    invalid-usage: "<gray>Usage: <white>%usage%"
+    unknown-subcommand: "<red>Unknown command. <gray>Type /st to see all commands."
+    wrong-world: "<red>S-Towny commands can only be used in a specific world."
+    invalid-name: "<red>Invalid name. <gray>Only letters, numbers and underscores are allowed."
+    name-taken: "<red>The name '%name%' is already taken."
+    already-in-town: "<red>You are already part of a town."
+    not-in-town: "<red>You are not part of a town."
+    already-in-kingdom: "<red>Your town is already part of a kingdom."
+    not-in-kingdom: "<red>You are not part of a kingdom."
+    already-in-royal: "<red>Your kingdom is already part of a royal realm."
+    not-in-royal: "<red>You are not part of a royal realm."
+    not-mayor: "<red>Only the town's mayor can do this."
+    not-king: "<red>Only the kingdom's king can do this."
+    not-emperor: "<red>Only the royal realm's emperor can do this."
+    not-resident-of-target: "<red>That player is not a resident of %name%."
+    cannot-act-on-self: "<red>You cannot do this to yourself."
+    create-pending: "<yellow>Request to found %type% <white>%name%<yellow> received. <white>Cost: %cost%\n<gray>Confirm with: <white>/st confirm %name%"
+    confirm-nothing-pending: "<red>You have no pending founding request to confirm."
+    confirm-insufficient-funds: "<red>Insufficient funds. <white>Required: %cost%"
+    created: "<gradient:#3ddc84:#00b894><bold>%type% %name% has been founded!</bold></gradient>"
+    invite-sent: "<green>Invite sent to %target%."
+    invite-received: "<yellow>%inviter%<white> invited you/your town to <gold>%name%<white> (%type%).\n<gray>Accept: <white>/st accept <gray>| Deny: <white>/st deny"
+    no-pending-invite: "<red>You have no pending invite."
+    invite-accepted: "<gradient:#3ddc84:#00b894>You joined %name% (%type%)!"
+    invite-denied: "<yellow>You declined the invite."
+    left: "<yellow>You left the %type%."
+    kicked: "<green>%player% was kicked from the town."
+    cannot-kick-leader: "<red>You cannot kick the leader."
+    assistant-added: "<green>%player% is now an assistant."
+    assistant-removed: "<yellow>%player% is no longer an assistant."
+    claim-success: "<gradient:#3ddc84:#00b894>Land claimed! <white>Cost: %cost% <gray>(total %total% claims)"
+    claim-already-yours: "<red>This land already belongs to your town."
+    claim-already-other: "<red>This land belongs to %town%."
+    claim-insufficient-funds: "<red>Insufficient funds. <white>Required: %cost%"
+    claim-max-reached: "<red>Your town has reached its maximum claim limit."
+    unclaim-success: "<yellow>Land unclaimed."
+    unclaim-not-claimed-by-you: "<red>This land does not belong to your town."
+    deposit-success: "<green>%amount% deposited. <gray>Town balance: %balance%"
+    withdraw-success: "<green>%amount% withdrawn. <gray>Town balance: %balance%"
+    insufficient-personal-funds: "<red>Insufficient personal balance."
+    insufficient-bank-funds: "<red>The town bank doesn't have enough funds."
+    not-bank-permitted: "<red>Only the mayor and assistants can access the bank."
+    tax-set: "<green>Daily tax set to %amount%."
+    tax-charged: "<gray>Daily tax of <white>%amount%<gray> was charged from your balance."
+    upkeep-charged: "<gray>Daily upkeep of <white>%amount%<gray> was charged from your bank."
+    upkeep-failed-warning: "<red>%name% could not pay its daily upkeep, insufficient funds!"
+    info-title: "<gold><bold>%name% <gray>(%type%)"
+    info-leader: "<white>Leader: <gray>%leader%"
+    info-residents: "<white>Members: <gray>%count%"
+    info-balance: "<white>Bank: <gray>%balance%"
+    info-claims: "<white>Claims: <gray>%count%"
+    info-tax: "<white>Daily tax: <gray>%amount%"
+    info-parent: "<white>Part of: <gray>%parent%"
+    not-found: "<red>'%name%' not found."
+    list-title: "<gold><bold>%type% list:"
+    list-empty: "<gray>Nothing here yet."
+    spawn-success: "<green>Teleported to %name%'s center."
+    spawn-no-town: "<red>You are not part of a town."
+    spawn-set: "<green>Town center set to this location."
+    renamed: "<green>%old% is now called %new%."
+    reload-success: "<green>S-Towny config reloaded."
+    protection-denied: "<red>This belongs to %town%, you can't build here without permission."
+    pvp-enabled: "<red>PVP is now enabled on town land."
+    pvp-disabled: "<green>PVP is now disabled on town land."
+    permission-granted: "<green>%player% now has the '%permission%' permission."
+    permission-revoked: "<yellow>%player%'s '%permission%' permission was revoked."
+    land-size: "<gold>Land: <white>%count% chunks"
+    entering-land: "<gold><bold>%town%"
+    entering-land-sub: "<gray>Entering"
+    leaving-land: "<gray><bold>Wilderness"
+    scoreboard-enabled: "<green>Scoreboard enabled."
+    scoreboard-disabled: "<yellow>Scoreboard disabled."
+    sb-title: "<gold><bold>⚔ S-Towny ⚔"
+    sb-town: "<white>Town: <gray>"
+    sb-kingdom: "<white>Kingdom: <gray>"
+    sb-royal: "<white>Royal: <gray>"
+    sb-balance: "<white>Bank: <gray>"
+    sb-claims: "<white>Claims: <gray>"
+    sb-pvp-on: "<red>PVP: ON"
+    sb-pvp-off: "<green>PVP: OFF"
+    sb-none: "<dark_gray>-"

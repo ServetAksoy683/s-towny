@@ -1,0 +1,19 @@
+name: S-Towny
+version: 1.1.0
+main: com.stowny.STowny
+api-version: '1.19'
+author: Hadi
+description: Kasaba / Krallik / Kraliyet yonetim plugini
+softdepend: [Vault, Essentials, dynmap]
+
+commands:
+  stowny:
+    description: S-Towny ana komutu
+    usage: /st <alt-komut>
+    aliases: [st]
+
+permissions:
+  stowny.use:
+    default: true
+  stowny.admin:
+    default: op
